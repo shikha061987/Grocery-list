@@ -17,12 +17,14 @@
 
 .outerbox {
   width: 95%;
+  /* Adjust size
+    border: 1px solid blue;
+ */
   text-align: center;
   font-weight: bold;
   padding-left: 15px;
   position: absolute;
 }
-
 input {
   width: 96%;
   padding: 5px;
@@ -33,23 +35,33 @@ input {
 button {
   padding: 5px;
   margin-left: 5px;
+ 
+
 }
 
 .error {
   color: red;
 }
-
 .no-bullets {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-
 .insideItem {
   border: 1px solid blue;
   text-align: left;
   padding-left: 10px;
   padding-top: 5px;
+
+
+
 }
 
+.list-item {
+  padding: 0px;
+  border-bottom: 1px solid #ccc; /* Divider line */
+}
 
+.list-item:last-child {
+  border-bottom: none; /* Removes the last border */
+}
