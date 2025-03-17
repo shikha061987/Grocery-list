@@ -20,30 +20,28 @@
         <div>
             <div class="insideItem">
 
-            <input type="text" [(ngModel)]="newProduct" placeholder="Add products" />
+                <input type="text" [(ngModel)]="newProduct" placeholder="Add products" />
 
-            <button (click)="addProduct()">+</button>
-            
-            <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+                <button (click)="addProduct()">+</button>
 
+                <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
 
-            <ul class="no-bullets">
-                <li *ngFor="let item of groceryList; let i = index"  class="list-item" >
-                    {{ item }}
-                    
-
+                <ul class="no-bullets">
+                    <li *ngFor="let item of groceryList; let i = index" class="list-item">
+                        <!--{{ item.itemName}}-->
+                        {{ item}}
                         <button (click)="removeProduct(i)">
                             <img src="delete.png" alt="🗑" width="15px" height="15px">
                         </button>
-                </li>
-            </ul>
+                    </li>
+                </ul>
 
 
-           
-        </div>
+
+            </div>
         </div>
     </div>
 
 
-  
+
 </div>
