@@ -1,0 +1,49 @@
+<!--<div class="container">
+    <div class="innerbox">Grocery List
+        <div class="outerbox">
+
+            <div><input type="text" placeholder="Add products" />
+                <button (click)="addItem()">➕</button>
+                <ul>
+                    <li *ngFor="let item of groceryList">{{ groceryList }}</li>
+                  </ul>
+            </div>
+        </div>
+    </div>
+    <div class="innerbox">Add Milk Product</div>
+    <div class="innerbox">Error Message</div>
+    <div class="innerbox">Remove Grocery</div>
+</div>-->
+<div class="grocery-container">
+    <div class="outerbox">
+        <h2>Grocery List</h2>
+        <div>
+            <div class="insideItem">
+
+            <input type="text" [(ngModel)]="newProduct" placeholder="Add products" />
+
+            <button (click)="addProduct()">+</button>
+            
+            <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+
+
+            <ul class="no-bullets">
+                <li *ngFor="let item of groceryList; let i = index"  class="list-item" >
+                    {{ item }}
+                    
+
+                        <button (click)="removeProduct(i)">
+                            <img src="delete.png" alt="🗑" width="15px" height="15px">
+                        </button>
+                </li>
+            </ul>
+
+
+           
+        </div>
+        </div>
+    </div>
+
+
+  
+</div>

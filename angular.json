@@ -82,6 +82,8 @@
               {
                 "glob": "**/*",
                 "input": "public"
+
+                
               }
             ],
             "styles": [

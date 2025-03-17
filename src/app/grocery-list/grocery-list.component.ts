@@ -1,0 +1,53 @@
+import { CommonModule } from '@angular/common';
+import { Component, NgModule } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
+import { GroceryService } from '../grocery.service';
+
+
+
+@Component({
+  selector: 'app-grocery-list',
+  imports: [CommonModule,FormsModule],
+  templateUrl: './grocery-list.component.html',
+  styleUrl: './grocery-list.component.css'
+})
+export class GroceryListComponent {
+  newProduct: string = '';
+  errorMessage: string = '';
+  groceryList: string[] = ['Bananas', 'Peanut Butter', 'Wheat Bread', 'Greek yogurt'];
+  //groceryList: any[] = [];
+  
+  constructor(private groceryService: GroceryService) {}
+
+
+ /* ngOnInit() {
+    this.groceryService.getGroceries().subscribe({
+      next: (data) => {
+        this.groceryList = data;
+      },
+      error: (error) => {
+        console.error('Error fetching grocery list:', error);
+      }
+    });
+  }*/
+
+  addProduct() {
+    if (!this.newProduct.trim()) {
+      this.errorMessage = 'Empty or duplicate product not allowed';
+      return;
+    }
+
+    if (this.groceryList.includes(this.newProduct.trim())) {
+      this.errorMessage = 'Duplicate product not allowed';
+      return;
+    }
+console.log(this.newProduct);
+    this.groceryList.push(this.newProduct.trim());
+    this.newProduct = '';
+    this.errorMessage = '';
+  }
+
+  removeProduct(index: number) {
+    this.groceryList.splice(index, 1);
+  }
+}
